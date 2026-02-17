@@ -1,0 +1,1 @@
+I am working as Associate Professor in the Department of CSE(Data Science), CVR College of Engineering, Hyderabad, India. My area of research interest includes all aspects of Natural Language Processing, Computational Linguistis, Language Technology, and Text Processing.
