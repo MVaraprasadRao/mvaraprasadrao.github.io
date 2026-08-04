@@ -1,341 +1,739 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>M. Varaprasad Rao</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <style>
-        .profile-container {
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              gap: 25px;
-              flex-wrap: wrap;
-        }
+<meta charset="UTF-8">
+<title>M. Varaprasad Rao, Ph.D — Associate Professor, NLP &amp; Language Technology</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="M. Varaprasad Rao, Ph.D — Associate Professor, Dept. of CSE (Data Science), CVR College of Engineering, Hyderabad. Research in NLP, Computational Linguistics &amp; Text Processing.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
 
-        .profile-img {
-            width: 170px;
-            height: 170px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 5px solid white;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-        }
+  /* ============ TOKENS ============ */
+  :root{
+    --ink:#0f1e2e;
+    --ink-2:#16283c;
+    --paper:#f6f4ee;
+    --paper-2:#ffffff;
+    --gold:#a9822f;
+    --gold-soft:#d8c48f;
+    --slate:#2c333d;
+    --muted:#6c7381;
+    --line:#e2ddd0;
+    --line-dark:#25384d;
+    --shadow: 0 1px 2px rgba(15,30,46,.04), 0 8px 24px rgba(15,30,46,.06);
+    --serif: "Fraunces", "Iowan Old Style", Georgia, serif;
+    --sans: "IBM Plex Sans", -apple-system, Segoe UI, sans-serif;
+    --mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, monospace;
+    --maxw: 1080px;
+  }
 
-        
-        body {
-            margin: 0;
-            font-family: Arial, Helvetica, sans-serif;
-            background-color: #f4f6f9;
-            color: #333;
-            line-height: 1.6;
-        }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:var(--sans);
+    background:var(--paper);
+    color:var(--slate);
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{ background:var(--gold-soft); color:var(--ink); }
 
-        header {
-            background: #0a3d62;
-            color: white;
-            padding: 30px 20px;
-            text-align: center;
-        }
+  a{ color:inherit; }
+  img{ max-width:100%; display:block; }
+  .wrap{ max-width:var(--maxw); margin:0 auto; padding:0 28px; }
 
-        header h1 {
-            margin: 0;
-            font-size: 32px;
-        }
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    *{ animation-duration:.001ms !important; transition-duration:.001ms !important; }
+  }
 
-        header p {
-            margin-top: 5px;
-            font-size: 18px;
-        }
+  /* ============ TOP NAV ============ */
+  .topbar{
+    position:sticky; top:0; z-index:50;
+    background:rgba(15,30,46,.94);
+    backdrop-filter:saturate(140%) blur(6px);
+    border-bottom:1px solid var(--line-dark);
+  }
+  .topbar .wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    height:60px;
+  }
+  .brand{
+    font-family:var(--mono); font-size:13px; letter-spacing:.04em;
+    color:#f2efe6; text-decoration:none; display:flex; align-items:baseline; gap:8px;
+  }
+  .brand b{ font-family:var(--serif); font-weight:600; font-size:17px; letter-spacing:0; }
+  .brand span{ color:var(--gold-soft); font-size:11px; }
 
-        nav {
-            background: #1e3799;
-            padding: 10px;
-            text-align: center;
-        }
+  nav.primary{ display:flex; gap:2px; }
+  nav.primary a{
+    font-family:var(--mono); font-size:12px; letter-spacing:.03em; text-transform:uppercase;
+    color:#c9d1de; text-decoration:none; padding:10px 12px; border-radius:4px;
+    transition:color .15s ease, background .15s ease;
+    position:relative;
+  }
+  nav.primary a:hover{ color:#fff; background:rgba(255,255,255,.06); }
+  nav.primary a.active{ color:var(--gold-soft); }
+  nav.primary a.active::after{
+    content:""; position:absolute; left:12px; right:12px; bottom:4px; height:1px; background:var(--gold-soft);
+  }
 
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 15px;
-            font-weight: bold;
-        }
+  .navtoggle{ display:none; background:none; border:1px solid var(--line-dark); color:#f2efe6; width:38px; height:38px; border-radius:6px; font-size:18px; cursor:pointer; }
 
-        nav a:hover {
-            text-decoration: underline;
-        }
-
-        section {
-            padding: 40px 10%;
-        }
-
-        h2 {
-            color: #0a3d62;
-            border-bottom: 2px solid #ddd;
-            padding-bottom: 10px;
-        }
-
-        .card {
-            background: white;
-            padding: 20px;
-            margin-top: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-        }
-
-        footer {
-            text-align: center;
-            padding: 20px;
-            background: #0a3d62;
-            color: white;
-            margin-top: 40px;
-        }
-
-        ul {
-            padding-left: 20px;
-        }
-
-        .highlight {
-            color: #1e3799;
-            font-weight: bold;
-        }
-
-        @media (max-width: 768px) {
-            section {
-                padding: 30px 5%;
-            }
-        }
-
-        @media (max-width: 768px) {
-    .profile-container {
-        flex-direction: column;
+  @media (max-width: 860px){
+    nav.primary{
+      position:absolute; top:60px; left:0; right:0;
+      background:var(--ink); flex-direction:column; gap:0;
+      border-bottom:1px solid var(--line-dark);
+      max-height:0; overflow:hidden; transition:max-height .25s ease;
     }
-}
-    </style>
+    nav.primary.open{ max-height:420px; }
+    nav.primary a{ padding:14px 28px; border-top:1px solid rgba(255,255,255,.05); }
+    .navtoggle{ display:block; }
+  }
+
+  /* ============ SECTION SCAFFOLD ============ */
+  section{ padding:88px 0; border-bottom:1px solid var(--line); }
+  section:last-of-type{ border-bottom:none; }
+
+  .eyebrow{
+    font-family:var(--mono); font-size:12px; letter-spacing:.12em; text-transform:uppercase;
+    color:var(--gold); display:flex; align-items:center; gap:10px; margin-bottom:14px;
+  }
+  .eyebrow .num{ color:var(--muted); }
+  .eyebrow::after{ content:""; flex:1; height:1px; background:var(--line); }
+
+  h2.headline{
+    font-family:var(--serif); font-weight:600; font-size:clamp(28px,4vw,40px);
+    color:var(--ink); margin:0 0 36px; letter-spacing:-.01em;
+  }
+
+  .reveal{ opacity:0; transform:translateY(14px); transition:opacity .6s ease, transform .6s ease; }
+  .reveal.in{ opacity:1; transform:none; }
+
+  /* ============ HERO ============ */
+  .hero{
+    background:
+      radial-gradient(1100px 480px at 82% -10%, rgba(169,130,47,.20), transparent 60%),
+      linear-gradient(180deg, var(--ink) 0%, var(--ink-2) 100%);
+    color:#f2efe6;
+    padding:76px 0 64px;
+    border-bottom:1px solid var(--line-dark);
+  }
+  .hero .wrap{
+    display:grid; grid-template-columns:1.3fr .7fr; gap:56px; align-items:center;
+  }
+  .hero-kicker{
+    font-family:var(--mono); font-size:12px; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--gold-soft); margin-bottom:18px;
+  }
+  .hero h1{
+    font-family:var(--serif); font-weight:600; font-size:clamp(38px,5.4vw,58px);
+    line-height:1.05; margin:0 0 16px; letter-spacing:-.01em;
+  }
+  .hero h1 em{ font-style:italic; font-weight:500; color:var(--gold-soft); }
+  .hero .role{
+    font-size:18px; color:#cfd6e0; max-width:52ch; margin:0 0 8px;
+  }
+  .hero .affil{
+    font-family:var(--mono); font-size:13px; color:#98a2b3; margin:0 0 30px;
+  }
+  .hero-cta{ display:flex; gap:12px; flex-wrap:wrap; margin-bottom:44px; }
+  .btn{
+    font-family:var(--sans); font-weight:500; font-size:14px; text-decoration:none;
+    padding:11px 20px; border-radius:5px; display:inline-flex; align-items:center; gap:8px;
+    transition:transform .15s ease, background .15s ease, border-color .15s ease;
+  }
+  .btn-gold{ background:var(--gold); color:#1a1400; }
+  .btn-gold:hover{ transform:translateY(-1px); background:#bd9642; }
+  .btn-ghost{ border:1px solid rgba(255,255,255,.22); color:#f2efe6; }
+  .btn-ghost:hover{ border-color:var(--gold-soft); color:var(--gold-soft); }
+
+  .statline{
+    display:grid; grid-template-columns:repeat(4,auto); gap:34px;
+    border-top:1px solid rgba(255,255,255,.12); padding-top:26px;
+  }
+  .stat b{
+    display:block; font-family:var(--serif); font-weight:600; font-size:26px; color:#fff;
+  }
+  .stat span{
+    font-family:var(--mono); font-size:11px; letter-spacing:.06em; text-transform:uppercase; color:#98a2b3;
+  }
+
+  .portrait-wrap{ display:flex; flex-direction:column; align-items:center; gap:16px; }
+  .portrait{
+    width:220px; height:220px; border-radius:50%; object-fit:cover;
+    border:1px solid rgba(255,255,255,.18);
+    box-shadow:0 0 0 10px rgba(169,130,47,.08), 0 20px 50px rgba(0,0,0,.35);
+  }
+  .seal{
+    font-family:var(--mono); font-size:10.5px; letter-spacing:.12em; text-transform:uppercase;
+    color:var(--gold-soft); text-align:center; border:1px solid rgba(216,196,143,.35);
+    padding:8px 14px; border-radius:999px;
+  }
+  @media (max-width:860px){
+    .hero .wrap{ grid-template-columns:1fr; text-align:center; }
+    .hero-cta{ justify-content:center; }
+    .statline{ grid-template-columns:repeat(2,1fr); justify-items:center; text-align:center; }
+    .portrait-wrap{ order:-1; }
+  }
+
+  /* ============ ABOUT ============ */
+  .about-grid{ display:grid; grid-template-columns:1.5fr 1fr; gap:48px; align-items:start; }
+  .lede{
+    font-family:var(--serif); font-size:21px; line-height:1.6; color:var(--ink);
+    font-weight:400;
+  }
+  .lede em{ font-style:italic; color:var(--gold); font-weight:500; }
+  .focus-list{ list-style:none; margin:26px 0 0; padding:0; display:grid; gap:10px; }
+  .focus-list li{
+    font-family:var(--mono); font-size:13px; color:var(--slate);
+    padding-left:20px; position:relative;
+  }
+  .focus-list li::before{
+    content:"—"; position:absolute; left:0; color:var(--gold);
+  }
+  .about-card{
+    background:var(--paper-2); border:1px solid var(--line); border-radius:10px;
+    padding:26px; box-shadow:var(--shadow);
+  }
+  .about-card h3{
+    font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase;
+    color:var(--muted); margin:0 0 14px;
+  }
+  .about-card dl{ margin:0; display:grid; gap:12px; }
+  .about-card dt{ font-size:12px; color:var(--muted); }
+  .about-card dd{ margin:0; font-family:var(--serif); font-size:15px; color:var(--ink); }
+
+  /* ============ EXPERIENCE (timeline) ============ */
+  .timeline{ position:relative; padding-left:26px; }
+  .timeline::before{
+    content:""; position:absolute; left:5px; top:6px; bottom:6px; width:1px; background:var(--line);
+  }
+  .tl-item{ position:relative; padding-bottom:30px; }
+  .tl-item:last-child{ padding-bottom:0; }
+  .tl-item::before{
+    content:""; position:absolute; left:-26px; top:5px; width:11px; height:11px; border-radius:50%;
+    background:var(--paper-2); border:2px solid var(--gold);
+  }
+  .tl-item.current::before{ background:var(--gold); }
+  .tl-role{ font-family:var(--serif); font-size:19px; color:var(--ink); font-weight:600; margin:0 0 3px; }
+  .tl-org{ font-size:14.5px; color:var(--slate); margin:0 0 4px; }
+  .tl-date{ font-family:var(--mono); font-size:12px; color:var(--muted); }
+  .tag-current{
+    font-family:var(--mono); font-size:10px; letter-spacing:.08em; text-transform:uppercase;
+    background:var(--gold); color:#1a1400; padding:2px 8px; border-radius:999px; margin-left:8px;
+  }
+
+  /* ============ PUBLICATIONS ============ */
+  .pub-toolbar{
+    display:flex; gap:10px; flex-wrap:wrap; align-items:center; justify-content:space-between;
+    margin-bottom:28px; padding-bottom:20px; border-bottom:1px solid var(--line);
+  }
+  .pub-tabs{ display:flex; gap:8px; flex-wrap:wrap; }
+  .pub-tab{
+    font-family:var(--mono); font-size:12px; letter-spacing:.03em; text-transform:uppercase;
+    background:var(--paper-2); border:1px solid var(--line); color:var(--slate);
+    padding:8px 14px; border-radius:999px; cursor:pointer; transition:all .15s ease;
+  }
+  .pub-tab .n{ color:var(--muted); }
+  .pub-tab:hover{ border-color:var(--gold); }
+  .pub-tab.active{ background:var(--ink); border-color:var(--ink); color:#fff; }
+  .pub-tab.active .n{ color:var(--gold-soft); }
+
+  .pub-search{
+    display:flex; align-items:center; gap:8px; background:var(--paper-2);
+    border:1px solid var(--line); border-radius:999px; padding:8px 14px; min-width:220px;
+  }
+  .pub-search input{
+    border:none; outline:none; background:transparent; font-family:var(--sans); font-size:13px;
+    width:100%; color:var(--slate);
+  }
+  .pub-search svg{ flex:none; opacity:.5; }
+
+  .pub-block{ margin-bottom:8px; }
+  .pub-block h3{
+    font-family:var(--mono); font-size:12px; letter-spacing:.1em; text-transform:uppercase;
+    color:var(--gold); margin:34px 0 4px;
+  }
+  .pub-count{ color:var(--muted); font-weight:400; }
+
+  ol.pub-list{ list-style:none; margin:0; padding:0; counter-reset:pub; }
+  ol.pub-list li{
+    counter-increment:pub;
+    display:grid; grid-template-columns:34px 1fr; gap:14px;
+    padding:15px 0; border-top:1px solid var(--line);
+    font-size:14.5px; color:var(--slate);
+  }
+  ol.pub-list li::before{
+    content: counter(pub, decimal-leading-zero);
+    font-family:var(--mono); font-size:12px; color:var(--muted); padding-top:2px;
+  }
+  ol.pub-list li .badge{
+    font-family:var(--mono); font-size:10px; letter-spacing:.05em;
+    border:1px solid var(--gold-soft); color:var(--gold); background:rgba(169,130,47,.08);
+    padding:2px 7px; border-radius:999px; white-space:nowrap; margin-left:8px; display:inline-block;
+  }
+  ol.pub-list li.hidden{ display:none; }
+  .pub-empty{ display:none; padding:30px 0; color:var(--muted); font-family:var(--mono); font-size:13px; }
+  .pub-empty.show{ display:block; }
+
+  /* ============ CARD GRIDS (membership / courses) ============ */
+  .grid3{ display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:16px; }
+  .info-card{
+    background:var(--paper-2); border:1px solid var(--line); border-radius:10px;
+    padding:22px; box-shadow:var(--shadow);
+  }
+  .info-card .k{ font-family:var(--mono); font-size:11px; color:var(--gold); letter-spacing:.06em; margin-bottom:8px; text-transform:uppercase; }
+  .info-card .v{ font-family:var(--serif); font-size:17px; color:var(--ink); font-weight:600; }
+  .info-card .sub{ font-family:var(--mono); font-size:12px; color:var(--muted); margin-top:6px; }
+
+  /* ============ AWARDS ============ */
+  .awards{ display:grid; gap:0; }
+  .award-row{
+    display:grid; grid-template-columns:90px 1fr; gap:20px; padding:20px 0; border-top:1px solid var(--line);
+    align-items:baseline;
+  }
+  .award-row:first-child{ border-top:1px solid var(--line); }
+  .award-year{ font-family:var(--mono); font-size:13px; color:var(--gold); }
+  .award-title{ font-family:var(--serif); font-size:17px; color:var(--ink); font-weight:600; margin:0 0 3px; }
+  .award-body{ font-size:14px; color:var(--muted); margin:0; }
+
+  /* ============ CONTACT ============ */
+  .contact-wrap{
+    display:grid; grid-template-columns:1fr 1fr; gap:16px;
+  }
+  .contact-card{
+    background:var(--ink); color:#f2efe6; border-radius:10px; padding:26px;
+    grid-column:1 / -1; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px;
+  }
+  .contact-card .label{ font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--gold-soft); margin-bottom:6px; }
+  .contact-card .email{ font-family:var(--serif); font-size:22px; }
+  .contact-card a.email{ text-decoration:none; color:#fff; }
+  .link-card{
+    background:var(--paper-2); border:1px solid var(--line); border-radius:10px;
+    padding:18px 20px; display:flex; align-items:center; justify-content:space-between;
+    text-decoration:none; color:var(--ink); transition:border-color .15s ease, transform .15s ease;
+  }
+  .link-card:hover{ border-color:var(--gold); transform:translateX(2px); }
+  .link-card .name{ font-family:var(--serif); font-size:16px; font-weight:600; }
+  .link-card .arrow{ color:var(--gold); font-family:var(--mono); }
+  @media (max-width:700px){ .contact-wrap{ grid-template-columns:1fr; } }
+
+  /* ============ FOOTER ============ */
+  footer{
+    background:var(--ink); color:#98a2b3; padding:40px 0; border-top:1px solid var(--line-dark);
+  }
+  footer .wrap{ display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; }
+  footer .colophon{ font-family:var(--mono); font-size:12px; }
+  footer .colophon b{ color:#f2efe6; }
+  .to-top{ font-family:var(--mono); font-size:12px; color:var(--gold-soft); text-decoration:none; }
+
+  @media (max-width:860px){
+    .about-grid{ grid-template-columns:1fr; }
+    section{ padding:64px 0; }
+  }
+</style>
 </head>
 
 <body>
 
-<header>
-    <div class="profile-container">
-        <img src="MVPR.jpg" alt="Rao" class="profile-img">
-        <div>
-            <h1><b></b>M Varaprasad Rao, Ph.D</b></h1>
-            
-        </div>
+<div class="topbar">
+  <div class="wrap">
+    <a class="brand" href="#top"><b>M. Varaprasad Rao</b><span>Ph.D</span></a>
+    <button class="navtoggle" id="navToggle" aria-label="Toggle navigation">☰</button>
+    <nav class="primary" id="primaryNav">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#publications">Publications</a>
+      <a href="#membership">Memberships</a>
+      <a href="#lectures">Courses</a>
+      <a href="#awards">Awards</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</div>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div>
+      <div class="hero-kicker">Associate Professor · Dept. of CSE (Data Science)</div>
+      <h1>M&nbsp;Varaprasad&nbsp;Rao, <em>Ph.D</em></h1>
+      <p class="role">Researcher in Natural Language Processing, Computational Linguistics, Language Technology &amp; Text Processing — with 25 years across teaching, applied research and cross‑disciplinary AI collaboration.</p>
+      <p class="affil">CVR College of Engineering · Hyderabad, India</p>
+      <div class="hero-cta">
+        <a class="btn btn-gold" href="#publications">Browse publications</a>
+        <a class="btn btn-ghost" href="#contact">Get in touch</a>
+      </div>
+      <div class="statline">
+        <div class="stat"><b>25+</b><span>Years in academia</span></div>
+        <div class="stat"><b>67</b><span>Publications</span></div>
+        <div class="stat"><b>8</b><span>Patents</span></div>
+        <div class="stat"><b>3</b><span>Awards</span></div>
+      </div>
     </div>
+    <div class="portrait-wrap">
+      <img src="MVPR.jpg" alt="Portrait of M. Varaprasad Rao" class="portrait">
+      <div class="seal">CSI · ISTE · IAEng · ACM</div>
+    </div>
+  </div>
 </header>
 
-<nav>
-    <a href="#about">About Me</a>
-    <a href="#experience">Experience</a>
-    <a href="#publications">Publications</a>
-    <a href="#membership">Memberships</a>
-    <a href="#lectures">Lectures</a>
-    <a href="#awards">Awards</a>
-    <a href="#contact">Contact</a>
-</nav>
-
 <section id="about">
-    <h2>About Me</h2>
-    <div class="card">
-        <p>
-            I am working as Associate Professor in the Department of CSE(Data Science), CVR College of Engineering, Hyderabad, India. My area of research interest includes all aspects of Natural Language Processing, Computational Linguistis, Language Technology, and Text Processing.
-        </p>
+  <div class="wrap">
+    <div class="eyebrow"><span class="num">§01</span> About</div>
+    <h2 class="headline">A career built at the intersection of language and computing</h2>
+    <div class="about-grid">
+      <div class="reveal">
+        <p class="lede">I work as <em>Associate Professor</em> in the Department of CSE (Data Science) at CVR College of Engineering, Hyderabad, India. My research spans <em>Natural Language Processing</em>, Computational Linguistics, Language Technology and Text Processing — with a particular focus on low‑resource Indian languages.</p>
+        <ul class="focus-list">
+          <li>Natural Language Processing &amp; Text Summarization</li>
+          <li>Computational Linguistics for Telugu &amp; Hindi</li>
+          <li>Language Technology and Applied Machine Learning</li>
+          <li>Cloud Computing, Security &amp; Data Mining</li>
+        </ul>
+      </div>
+      <div class="about-card reveal">
+        <h3>At a glance</h3>
+        <dl>
+          <dt>Current position</dt>
+          <dd>Associate Professor, CVR College of Engineering</dd>
+          <dt>Location</dt>
+          <dd>Hyderabad, Telangana, India</dd>
+          <dt>Research focus</dt>
+          <dd>NLP &amp; Computational Linguistics</dd>
+          <dt>Teaching since</dt>
+          <dd>July 2001</dd>
+        </dl>
+      </div>
     </div>
+  </div>
 </section>
 
 <section id="experience">
-    <h2>Academic Experience</h2>
-    <div class="card">
-        <ul>
-            <li>Associate Professor - CVR College of Engineering, Hyderabad - January 2023 to Till date</li>
-            <li>Professor and Head – Sree Dattha Engineering College, Hyderabad - Febrary 2022 to December 2022</li>
-            <li>Professor and I/c Head – CMR Technical Campus, Hyderabad - July 2017 to January 2022 </li>
-            <li>Professor and I/c Head – Anurag Group of Institutions, Hyderabad - December 2014 to June 2017 </li>
-            <li>Assistant Professor – Matrusri Institute of PG Studies, Hyderabad - June 2007 to August 2014 </li>
-            <li>Assistant Professor - Nalla Malla Reddy Engineeering College, Hyderabad - Feb 2007 to June 2007</li>
-            <li>Lecturer - Andhra Vidyalaya, Hyderabad - July 2001 to February 2007</li>
-        </ul>
+  <div class="wrap">
+    <div class="eyebrow"><span class="num">§02</span> Experience</div>
+    <h2 class="headline">Academic Experience</h2>
+    <div class="timeline">
+      <div class="tl-item current reveal">
+        <p class="tl-role">Associate Professor <span class="tag-current">Current</span></p>
+        <p class="tl-org">CVR College of Engineering, Hyderabad</p>
+        <p class="tl-date">January 2023 — Till date</p>
+      </div>
+      <div class="tl-item reveal">
+        <p class="tl-role">Professor &amp; Head</p>
+        <p class="tl-org">Sree Dattha Engineering College, Hyderabad</p>
+        <p class="tl-date">February 2022 — December 2022</p>
+      </div>
+      <div class="tl-item reveal">
+        <p class="tl-role">Professor &amp; I/C Head</p>
+        <p class="tl-org">CMR Technical Campus, Hyderabad</p>
+        <p class="tl-date">July 2017 — January 2022</p>
+      </div>
+      <div class="tl-item reveal">
+        <p class="tl-role">Professor &amp; I/C Head</p>
+        <p class="tl-org">Anurag Group of Institutions, Hyderabad</p>
+        <p class="tl-date">December 2014 — June 2017</p>
+      </div>
+      <div class="tl-item reveal">
+        <p class="tl-role">Assistant Professor</p>
+        <p class="tl-org">Matrusri Institute of PG Studies, Hyderabad</p>
+        <p class="tl-date">June 2007 — August 2014</p>
+      </div>
+      <div class="tl-item reveal">
+        <p class="tl-role">Assistant Professor</p>
+        <p class="tl-org">Nalla Malla Reddy Engineering College, Hyderabad</p>
+        <p class="tl-date">February 2007 — June 2007</p>
+      </div>
+      <div class="tl-item reveal">
+        <p class="tl-role">Lecturer</p>
+        <p class="tl-org">Andhra Vidyalaya, Hyderabad</p>
+        <p class="tl-date">July 2001 — February 2007</p>
+      </div>
     </div>
+  </div>
 </section>
 
 <section id="publications">
-    <h2>Publications</h2>
-    <div class="card">
-    <h3>Journals</h3>
-    
-        <ol>
-    <li> Varaprasad Rao M, Kunal Chakma, Anupam Jamatia, and Dwijen Rudrapal. 2026. Enhancing Readability of Telugu Text Summarization Using Multi-scale Attention and Bio-inspired Optimization. ACM Trans. Asian Low-Resour. Lang. Inf. Process. Just Accepted (July 2026). https://doi.org/10.1145/3831598 </li> - [SCIE]
-    <li>Sree, S.R., Sandhya, M., Jayanthi, A. et al. Quantum–classical hybrid learning framework for molecular property prediction and molecule optimization in drug discovery. Discov Computing 29, 358 (2026). https://doi.org/10.1007/s10791-026-10240-8</li>  - [SCIE]
-    <li>M. Varaprasad Rao, Kunal Chakma, Anupam Jamatia, Dwijen Rudrapal, Adaptive Trans-Residual Long Short Term Memory Model for Automatic Text Summarization in Telugu, Computational Intelligence, Apr 2026, https://doi.org/10.1111/coin.70233 </li> - [SCIE]
-    <li>Nalavala Ramanjaneya Reddy, Bhagya Rekha Sangisetti, M. Varaprasad Rao, Suneeta Netala, P. Prasanna Kumari and Dasaka V. S. S. Subrahmanyam, Quantum inspired algorithms for sustainable artificial intelligence and energy efficient machine learning optimisation, Discover Computing, Mar 2026, https://doi.org/10.1007/s10791-026-10057-5 </li> - [SCIE]  
-    <li> B, Sravankumar; Krishna, G. Bala; Murthy, G. Vishnu; Kumar, D. Ramana ; Sridevi, M.; Rao, M. Varaprasad; Integration of Explainable AI with Deep Learning for Real-Time Sentiment-Driven Stock Price Prediction, Computational Economics, Nov 2025, DOI10.1007/s10614-025-11159-w </li> - [SCIE]
-    <li>V.Hari Prasad, Dr. T. Bhaskar, Sukanya Ledalla, M. Varaprasad Rao, A. Harshavardhan, NeuroexplainAI: An Explainable AI And Statistical Framework for Brain Tumor Diagnosis and Severity Prediction using Multimodal MRI with Neurofusionnet, Journal of Theoretical and Applied Information Technology, 103(17), Pages: 6725-49, Sep. 2025.</li> - [SCOPUS]
-    <li>Samya, B., Anantharam, B., Swathi, L., Dr. K. Sreeramamurthy, M Varaprasad Rao., An intelligent distributed data mining framework for energy-efficient WSN using a hybrid heuristic-aided cascaded residual LSTM. Peer-to-Peer Netw. Appl. 18, 252, Aug. 2025. https://doi.org/10.1007/s12083-025-02075-9.</li> [SCIE]
-   <li> G. Nagaraju, Sridhar Gujjeti, M Varaprasad Rao, Dr Anitha Patil, and Nagendar Yamsani; Deep Learning-Driven Behavioral Analysis for Real-Time Threat Detection and Classification in Network Traffic; International Journal of Electrical and Electronics Research (IJEER); May 2025; ISSN: 2347-470X.</li> [SCOPUS]
-    <li>M. Varaprasad Rao, Kunal Chakma, Anupam Jamatia, and Dwijen Rudrapal An innovative Telugu text summarization framework using the pointer network and optimized attention layer; Multimedia Tools and Applications;  83(37), Springer Nature  2024; Pages: 84539–84564.</li> [SCOPUS/SCI]
-   <li> M. Varaprasad Rao et al., Online product sentiment analysis using random evolutionary whale optimization algorithm and deep belief network; Pattern Recognition Letters; 159, 2022, Pages: 1-8.</li> [SCOPUS/SCIE]
-    <li>B. Kavitha Rani, M. Varaprasad Rao, Raj Kumar Patra, K. Srinivas, and  G. Madhukar; Vehicle type classification using graph ant colony optimizer based stack autoencoder model; Multimedia Tools and Applications; Springer Nature 2021; https://doi.org/10.1007/s11042-021-11508-5.</li> [SCOPUS/SCIE]
-   <li> V Rama Raju, M. Varaprasad Rao et. al., A Low-Cost High-Speed Smart Instrument for Effective Electro Neuro Medical Diagnostics; IUP Journal of Electrical and Electronics Engineering; Vol: 14, Issue: 4; ISSN: 0974-1704; Oct 2021; Pages: 7-17.</li> [UGC CARE]
-   <li> V Rama Raju, M. Varaprasad Rao et. al., Measures of dispersion of WCs EMG waveforms variability: A study with automatic multi-channel guided low-cost high-speed electromyography; IP International Journal of Aesthetic and Health Rejuvenation, Vol:4, Issue:3; Sep 2021; Pages: 57-60.</li> [UGC CARE]
-   <li> V Rama Raju, M. Varaprasad Rao et. al., BoTox in writer’s cramp: A study with multiunit multichannel electromyographic EMG signal recording; IP International Journal of Aesthetic and Health Rejuvenation, Vol:4, Issue:3; Sep 2021; Pages: 51-56.</li> [UGC CARE]
-   <li> M. Varaprasad Rao et. al., Detecting and Removing Malicious Social Bots; Science, Technology and Development; Vol: 10, Issue: 7; ISSN: 0950-0707; July 2021; Pages 602-608.</li> [UGC CARE]
-   <li> M. Varaprasad Rao et. al., An Automatic Garbage Classification System; JETIR; Vol:8, Issue: 6; ISSN: 2349-5162; June 2021; Pages: 50-55.</li> [UGC CARE]
-   <li> M. Varaprasad Rao et. al., Predicting Movie Profitability using Decision Trees; International Journal for Research in Applied Science & Engineering Technology (IJRASET); Vol: 9, Issue: 5, ISSN: 2321-9653; May 2021; Pages 1397-1402.</li> [UGC CARE]
-   <li> M. Varaprasad Rao et. al., Automated Evaluation of Telugu Text Essays Using Latent Semantic Analysis; Turkish Journal of Computer and Mathematics Education; Vol:12 Issue: 5;  e-ISSN 1309-4653; April 2021; Pages 1888-1890.</li> [UGC CARE]
-   <li> B Kavitha Rani, M Varaprasad Rao, K Srinivas and G.Madhukar; Telugu Text Summarization Using LSTM Deep Learning; Pensee; Vol: 51, Issue:1; January 2021; ISSN: 0031-4773; Pages 355-363.</li> [UGC CARE]
-   <li> Konda Srinivas, M. Varaprasad Rao, B. Kavitha Rani, G. Madhukar, K. Srujan Raju; Corticosteroid Usage Trend and Their Focus Effects In Patients of Dermatology Using Machine Learning; European Journal of Molecular & Clinical Medicine; Vol: 7, Issue: 8, ISSN 2515-8260;  Nov 2020; Pages 3139-3144.</LI> [UGC CARE]
-    <li>K. Srinivas, B. Kavitha Rani, M. Varaprasad Rao, Raj Kumar Patra; Prediction of Heart Disease using Hybrid Linear Regression; European Journal of Molecular & Clinical Medicine; Vol: 7, Issue: 5; ISSN 2515-8260; 2020; Pages 1159-1171.</li> [UGC CARE]
-   <li> A Neelima, R Dharani, Y Shivani, and M Varaprasad Rao; Patient Health Monitoring With Doctor Alert Reporting Over IoT; Journal of Interdisciplinary Cycle Research; Vol: 12, Issue: 4; ISSN: 0022-1945; April 2020; Pages 1380-1391.</li> [UGC CARE]
-    <li>Kavitha Rani, B., Srinivas, K., Varaprasad Rao, M., Madhukar, G.; Optimizing Replica Migration in Cloud Data Centers”; International Journal of Recent Technology and Engineering; Vol: 8, Issue: 2; ISSN: 2277-3878, 2019; Pages 5266-5270. </li> [SCOPUS]
-   <li> Srinivas, K., Kavitha Rani, B., Varaprasad Rao, M., Madhukar, G., Venkata Ramana, B.; Convolution Neural Networks For Binary Classification; Journal of Computational and Theoretical Nanoscience; Vol: 16, Issue: 11; Nov 2019; ISSN: 1546-1955; Pages 4877-4882; DOI:10.1166/jctn.2019.8399. </LI> [SCOPUS]
-   <li> Dr K Srujan Raju, P Ramakrishna, M Varaprasad Rao, SC Satapathy; “Support Vector Machine with K-fold Cross-Validation Model for Software Fault Prediction”; IJPAM; Vol:118, Issue: 21B; ISSN 1311-8080; May 2018; 321-334. </li> [UGC CARE]
-   <li> B.Venkata Naga Sai, Dr.M. Varaprasad Rao, Dr K. Srujan Raju, Dr K.Srinivas; “Design and Implementation of Security for Mobile Cloud Storage as a Service using MapReduce Systems”; Doi: 10.21172/1.101.24; International Journal of Latest Trends in Engineering and Technology; Vol:10, Issue: 1; ISSN:2278-621X; Apr 2018;146-149.</li> [UGC CARE]
-  <li>  K Srujan Raju, M Varaprasad Rao; “Enterprise Information Security Risk Management”; CSI; Vol:42, Issue: 9; ISSN: 0970-637X; Dec 2017; 20-24.</li> [UGC CARE]
-  <li>  M Varaprasad Rao, K Srujan Raju; “Expert Recommended Systems for Book using Data Analytics”; IJIACS; Vol: 6, Issue:9; ISSN: 2347-8616; Sep 2017; 421-425.</li>
-  <li>  Viharika Padma, Sanjana B L, M Varaprasad Rao; “Comparative study for selection of an item based on multi-criteria DSS”; IJCSIS; Vol:15, Issue:2; ISSN: 1947- 5500; Feb 2017; 483-492.</li> [SCOPUS]
-  <li>  M Sridevi, R Rajshwara Rao, M Varaprasad Rao; “Recommendation System for Smart Mobile Phone selection through e-commerce website using TOPSIS algorithm”; IJAERS; Vol:3, SpIssue:5; DOI: 10.22161/ijaers/si.13; ISSN: 2349-6495; Dec 2016; 59-63.</li> [UGC CARE]
-   <li> Md Ajmat, M Varaprasad Rao; “Survey on Data Mining Algorithms”; pages: 225-243; IJARCSSE; Vol 6, Issue: 8; ISSN:2277-128X; Aug 2016; 225-243.</li> [UGC CARE]
-   <li> M Varaprasad Rao, G Vishnu Murthy; “Increase security in cloud computing using HMAC and Kerberos algorithms”; IJRET; Vol:5, SpIssue:5; eISSN: 2319-1163 | pISSN: 2321-7308; May 2016; 34-37.</li> [UGC CARE]
-   <li> M Sridevi, R Rajshwara Rao, M Varaprasad Rao; “A Survey on Recommended Systems”; IJCSIS; Vol:14, Issue:5; ISSN: 1947 5500; May 2016; 265-272.</li> [UGC CARE]
-  <li>  M Varaprasad Rao, N Ch Bharta Chryulu; “Secured Smart System Implementation in Pervasive Computing using VCS”; International Journal of UbiComp; Vol:6, Issue:2; ISSN 0975-8992; April 2015; 13-19.</li> [UGC CARE]
- <li>   A V Krishna Prasad, M Varaprasad Rao, K Chandra Sekhar; “Mining on Mobile Applications using K-means Algorithm”; IJRCAIT; Vol:2, Issue:6; ISSN: 2347-5099; Nov-Dec 2014; 62-66.</li> [UGC CARE]
-  <li>  M Varaprasad Rao, B Vishnu Vardhan; “A Mixed Approach for Hindi News Article Gist Generation”;	IJARCSSE; Vol:3, Issue:8; ISSN:2277-128X; Aug 2013; 900-906.</li> [UGC CARE]
-  <li>  M Varaprasad Rao, B Vishnu Vardhan, P Vijaypal Reddy; “A Statistical Model for GIST Generation: A Case Study on Hindi News Article”; IJDKP; Vol: 3, Issue:5; ISSN:2231-007X;	Sep 2013; 15-23.</li> [UGC CARE]
-   <li> M Varaprasad Rao,  N Ch Bharta Chryulu; “A Method for Construction of Visual Cryptographic Secret Sharing Scheme”; IJMA; Vol:2 Issue:10; ISSN-2229-5046; Oct 2011; 1882-1884.</li> [UGC CARE]
-        
+  <div class="wrap">
+    <div class="eyebrow"><span class="num">§03</span> Publications</div>
+    <h2 class="headline">Publications &amp; Patents</h2>
+
+    <div class="pub-toolbar">
+      <div class="pub-tabs" id="pubTabs">
+        <button class="pub-tab active" data-cat="all">All <span class="n">75</span></button>
+        <button class="pub-tab" data-cat="journal">Journals <span class="n">38</span></button>
+        <button class="pub-tab" data-cat="conf">Conferences <span class="n">19</span></button>
+        <button class="pub-tab" data-cat="chapter">Book Chapters <span class="n">10</span></button>
+        <button class="pub-tab" data-cat="patent">Patents <span class="n">8</span></button>
+      </div>
+      <div class="pub-search">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" id="pubSearch" placeholder="Search by title, author or journal…">
+      </div>
+    </div>
+
+    <div class="pub-block" data-block="journal">
+      <h3>Journals <span class="pub-count">(38)</span></h3>
+      <ol class="pub-list" data-cat="journal">
+        <li>Varaprasad Rao M, Kunal Chakma, Anupam Jamatia, and Dwijen Rudrapal. Enhancing Readability of Telugu Text Summarization Using Multi-scale Attention and Bio-inspired Optimization. <i>ACM Trans. Asian Low-Resour. Lang. Inf. Process.</i> Just Accepted, July 2026. DOI: 10.1145/3831598 <span class="badge">SCIE</span></li>
+        <li>Sree, S.R., Sandhya, M., Jayanthi, A. et al. Quantum–classical hybrid learning framework for molecular property prediction and molecule optimization in drug discovery. <i>Discov Computing</i> 29, 358 (2026). DOI: 10.1007/s10791-026-10240-8 <span class="badge">SCIE</span></li>
+        <li>M. Varaprasad Rao, Kunal Chakma, Anupam Jamatia, Dwijen Rudrapal. Adaptive Trans-Residual Long Short Term Memory Model for Automatic Text Summarization in Telugu. <i>Computational Intelligence</i>, Apr 2026. DOI: 10.1111/coin.70233 <span class="badge">SCIE</span></li>
+        <li>Nalavala Ramanjaneya Reddy, Bhagya Rekha Sangisetti, M. Varaprasad Rao, Suneeta Netala, P. Prasanna Kumari, Dasaka V. S. S. Subrahmanyam. Quantum inspired algorithms for sustainable artificial intelligence and energy efficient machine learning optimisation. <i>Discover Computing</i>, Mar 2026. DOI: 10.1007/s10791-026-10057-5 <span class="badge">SCIE</span></li>
+        <li>B. Sravankumar, G. Bala Krishna, G. Vishnu Murthy, D. Ramana Kumar, M. Sridevi, M. Varaprasad Rao. Integration of Explainable AI with Deep Learning for Real-Time Sentiment-Driven Stock Price Prediction. <i>Computational Economics</i>, Nov 2025. DOI: 10.1007/s10614-025-11159-w <span class="badge">SCIE</span></li>
+        <li>V. Hari Prasad, T. Bhaskar, Sukanya Ledalla, M. Varaprasad Rao, A. Harshavardhan. NeuroexplainAI: An Explainable AI and Statistical Framework for Brain Tumor Diagnosis and Severity Prediction using Multimodal MRI with Neurofusionnet. <i>Journal of Theoretical and Applied Information Technology</i>, 103(17), 6725–49, Sep 2025. <span class="badge">SCOPUS</span></li>
+        <li>Samya, B., Anantharam, B., Swathi, L., K. Sreeramamurthy, M. Varaprasad Rao. An intelligent distributed data mining framework for energy-efficient WSN using a hybrid heuristic-aided cascaded residual LSTM. <i>Peer-to-Peer Netw. Appl.</i> 18, 252, Aug 2025. DOI: 10.1007/s12083-025-02075-9 <span class="badge">SCIE</span></li>
+        <li>G. Nagaraju, Sridhar Gujjeti, M. Varaprasad Rao, Anitha Patil, Nagendar Yamsani. Deep Learning-Driven Behavioral Analysis for Real-Time Threat Detection and Classification in Network Traffic. <i>International Journal of Electrical and Electronics Research (IJEER)</i>, May 2025. ISSN: 2347-470X <span class="badge">SCOPUS</span></li>
+        <li>M. Varaprasad Rao, Kunal Chakma, Anupam Jamatia, Dwijen Rudrapal. An innovative Telugu text summarization framework using the pointer network and optimized attention layer. <i>Multimedia Tools and Applications</i>, 83(37), 84539–84564, Springer Nature 2024. <span class="badge">SCOPUS / SCI</span></li>
+        <li>M. Varaprasad Rao et al. Online product sentiment analysis using random evolutionary whale optimization algorithm and deep belief network. <i>Pattern Recognition Letters</i>, 159, 1–8, 2022. <span class="badge">SCOPUS / SCIE</span></li>
+        <li>B. Kavitha Rani, M. Varaprasad Rao, Raj Kumar Patra, K. Srinivas, G. Madhukar. Vehicle type classification using graph ant colony optimizer based stack autoencoder model. <i>Multimedia Tools and Applications</i>, Springer Nature 2021. DOI: 10.1007/s11042-021-11508-5 <span class="badge">SCOPUS / SCIE</span></li>
+        <li>V. Rama Raju, M. Varaprasad Rao et al. A Low-Cost High-Speed Smart Instrument for Effective Electro Neuro Medical Diagnostics. <i>IUP Journal of Electrical and Electronics Engineering</i>, 14(4), 7–17, Oct 2021. <span class="badge">UGC CARE</span></li>
+        <li>V. Rama Raju, M. Varaprasad Rao et al. Measures of dispersion of WCs EMG waveforms variability: A study with automatic multi-channel guided low-cost high-speed electromyography. <i>IP International Journal of Aesthetic and Health Rejuvenation</i>, 4(3), 57–60, Sep 2021. <span class="badge">UGC CARE</span></li>
+        <li>V. Rama Raju, M. Varaprasad Rao et al. BoTox in writer's cramp: A study with multiunit multichannel electromyographic EMG signal recording. <i>IP International Journal of Aesthetic and Health Rejuvenation</i>, 4(3), 51–56, Sep 2021. <span class="badge">UGC CARE</span></li>
+        <li>M. Varaprasad Rao et al. Detecting and Removing Malicious Social Bots. <i>Science, Technology and Development</i>, 10(7), 602–608, July 2021. <span class="badge">UGC CARE</span></li>
+        <li>M. Varaprasad Rao et al. An Automatic Garbage Classification System. <i>JETIR</i>, 8(6), 50–55, June 2021. <span class="badge">UGC CARE</span></li>
+        <li>M. Varaprasad Rao et al. Predicting Movie Profitability using Decision Trees. <i>IJRASET</i>, 9(5), 1397–1402, May 2021. <span class="badge">UGC CARE</span></li>
+        <li>M. Varaprasad Rao et al. Automated Evaluation of Telugu Text Essays Using Latent Semantic Analysis. <i>Turkish Journal of Computer and Mathematics Education</i>, 12(5), 1888–1890, April 2021. <span class="badge">UGC CARE</span></li>
+        <li>B. Kavitha Rani, M. Varaprasad Rao, K. Srinivas, G. Madhukar. Telugu Text Summarization Using LSTM Deep Learning. <i>Pensee</i>, 51(1), 355–363, January 2021. <span class="badge">UGC CARE</span></li>
+        <li>Konda Srinivas, M. Varaprasad Rao, B. Kavitha Rani, G. Madhukar, K. Srujan Raju. Corticosteroid Usage Trend and Their Focus Effects In Patients of Dermatology Using Machine Learning. <i>European Journal of Molecular &amp; Clinical Medicine</i>, 7(8), 3139–3144, Nov 2020. <span class="badge">UGC CARE</span></li>
+        <li>K. Srinivas, B. Kavitha Rani, M. Varaprasad Rao, Raj Kumar Patra. Prediction of Heart Disease using Hybrid Linear Regression. <i>European Journal of Molecular &amp; Clinical Medicine</i>, 7(5), 1159–1171, 2020. <span class="badge">UGC CARE</span></li>
+        <li>A. Neelima, R. Dharani, Y. Shivani, M. Varaprasad Rao. Patient Health Monitoring With Doctor Alert Reporting Over IoT. <i>Journal of Interdisciplinary Cycle Research</i>, 12(4), 1380–1391, April 2020. <span class="badge">UGC CARE</span></li>
+        <li>B. Kavitha Rani, K. Srinivas, M. Varaprasad Rao, G. Madhukar. Optimizing Replica Migration in Cloud Data Centers. <i>International Journal of Recent Technology and Engineering</i>, 8(2), 5266–5270, 2019. <span class="badge">SCOPUS</span></li>
+        <li>K. Srinivas, B. Kavitha Rani, M. Varaprasad Rao, G. Madhukar, B. Venkata Ramana. Convolution Neural Networks For Binary Classification. <i>Journal of Computational and Theoretical Nanoscience</i>, 16(11), 4877–4882, Nov 2019. DOI: 10.1166/jctn.2019.8399 <span class="badge">SCOPUS</span></li>
+        <li>K. Srujan Raju, P. Ramakrishna, M. Varaprasad Rao, S.C. Satapathy. Support Vector Machine with K-fold Cross-Validation Model for Software Fault Prediction. <i>IJPAM</i>, 118(21B), 321–334, May 2018. <span class="badge">UGC CARE</span></li>
+        <li>B. Venkata Naga Sai, M. Varaprasad Rao, K. Srujan Raju, K. Srinivas. Design and Implementation of Security for Mobile Cloud Storage as a Service using MapReduce Systems. <i>International Journal of Latest Trends in Engineering and Technology</i>, 10(1), 146–149, Apr 2018. DOI: 10.21172/1.101.24 <span class="badge">UGC CARE</span></li>
+        <li>K. Srujan Raju, M. Varaprasad Rao. Enterprise Information Security Risk Management. <i>CSI</i>, 42(9), 20–24, Dec 2017. <span class="badge">UGC CARE</span></li>
+        <li>M. Varaprasad Rao, K. Srujan Raju. Expert Recommended Systems for Book using Data Analytics. <i>IJIACS</i>, 6(9), 421–425, Sep 2017. </li>
+        <li>Viharika Padma, Sanjana B L, M. Varaprasad Rao. Comparative study for selection of an item based on multi-criteria DSS. <i>IJCSIS</i>, 15(2), 483–492, Feb 2017. <span class="badge">SCOPUS</span></li>
+        <li>M. Sridevi, R. Rajshwara Rao, M. Varaprasad Rao. Recommendation System for Smart Mobile Phone selection through e-commerce website using TOPSIS algorithm. <i>IJAERS</i>, 3(Sp.5), 59–63, Dec 2016. DOI: 10.22161/ijaers/si.13 <span class="badge">UGC CARE</span></li>
+        <li>Md Ajmat, M. Varaprasad Rao. Survey on Data Mining Algorithms. <i>IJARCSSE</i>, 6(8), 225–243, Aug 2016. <span class="badge">UGC CARE</span></li>
+        <li>M. Varaprasad Rao, G. Vishnu Murthy. Increase security in cloud computing using HMAC and Kerberos algorithms. <i>IJRET</i>, 5(Sp.5), 34–37, May 2016. <span class="badge">UGC CARE</span></li>
+        <li>M. Sridevi, R. Rajshwara Rao, M. Varaprasad Rao. A Survey on Recommended Systems. <i>IJCSIS</i>, 14(5), 265–272, May 2016. <span class="badge">UGC CARE</span></li>
+        <li>M. Varaprasad Rao, N. Ch. Bharta Chryulu. Secured Smart System Implementation in Pervasive Computing using VCS. <i>International Journal of UbiComp</i>, 6(2), 13–19, April 2015. <span class="badge">UGC CARE</span></li>
+        <li>A. V. Krishna Prasad, M. Varaprasad Rao, K. Chandra Sekhar. Mining on Mobile Applications using K-means Algorithm. <i>IJRCAIT</i>, 2(6), 62–66, Nov-Dec 2014. <span class="badge">UGC CARE</span></li>
+        <li>M. Varaprasad Rao, B. Vishnu Vardhan. A Mixed Approach for Hindi News Article Gist Generation. <i>IJARCSSE</i>, 3(8), 900–906, Aug 2013. <span class="badge">UGC CARE</span></li>
+        <li>M. Varaprasad Rao, B. Vishnu Vardhan, P. Vijaypal Reddy. A Statistical Model for GIST Generation: A Case Study on Hindi News Article. <i>IJDKP</i>, 3(5), 15–23, Sep 2013. <span class="badge">UGC CARE</span></li>
+        <li>M. Varaprasad Rao, N. Ch. Bharta Chryulu. A Method for Construction of Visual Cryptographic Secret Sharing Scheme. <i>IJMA</i>, 2(10), 1882–1884, Oct 2011. <span class="badge">UGC CARE</span></li>
       </ol>
-      
-    <h3>Conferences</h3>
-    
-        <ol>
-<li> Rohit Bojja , Anusha Addepati and Varaprasad Rao Mangu; LLaVA-Med V1.6: Swift Training of a Biomedical-Focused Language-and-Vision Model; Advances in Computational Intelligence and Informatics - Proceedings of ICACII 2025; LNNS-2098; pages:152-160; https://doi.org/10.1007/978-3-032-32483-2_17</li> [Scopus]
- <li>   P. Kalpana, M. Almusawi, Y. Chanti, V. Sunil Kumar and M. Varaprasad Rao,; A Deep Reinforcement Learning-Based Task Offloading Framework for Edge-Cloud Computing,  2024 International Conference on Integrated Circuits and Communication Systems (ICICACS), Raichur, India, 2024, pp. 1-5, doi: 10.1109/ICICACS60521.2024.10498232.</li> [SCOPUS]
- <li>   Y. Sneha, Y. M. Roopa, P. Sawant, M. V. Rao, D. L. Padmaja and R. V. S. Lalitha,; Advancements in Brain Tumor Detection using Machine Learning Applications from MRI Image Analysis, 2023 7th International Conference on I-SMAC (IoT in Social, Mobile, Analytics and Cloud) (I-SMAC), Kirtipur, Nepal, 2023, pp. 809-814, doi: 10.1109/I-SMAC58438.2023.10290231.</li> [SCOPUS]
- <li>   Srujan Raju, K., Jagtap, V., Kulkarni, P., Varaprasad Rao, M.; Gameplay Cognitive Decision Support Using Statistical and Non-statistical Parametric Fusion; Computer Communication, Networking and IoT. Lecture Notes in Networks and Systems, vol 459. Springer 2023. https://doi.org/10.1007/978-981-19-1976-3_24.</li> [SCOPUS]
- <li>   NL Kishore Kumar and Varaprasad Rao M; A Yolo-Based Deep Learning Approach for Vehicle Class Classification; MIWAI 2023, LNAI 14078, Springer; Pages: 554-568.</li> [SCOPUS]
- <li>   Srujan Raju K, Jagtap V, Kulkarni P, and Varaprasad Rao M; Gameplay Cognitive Decision Support Using Statistical and Non-statistical Parametric Fusion; LNNS, Springer, 2023; Vol: 459; Pages: 187-193.</li> [SCOPUS]
- <li>   M. Varaprasad Rao, B. Kavitha Rani, K. Srinivas, and G. Madhukar; Sequential Pattern Mining for the U.S. Presidential Elections Using Google Cloud Platform (GCP); Intelligent System Design, Advances in Intelligent Systems and Computing; Springer, 2021; Vol: 1171; DOI: 10.1007/978-981-15-5400-1_41; Pages 399-405. </li> [SCOPUS]
-  <li>  M Varaprasad Rao et. al., “Configure and Management of Internet of Things”;  Advances in Intelligent and Soft Computing, Springer, 2020, Volume 1079; DOI: 10.1007/9789811510977_14; Pages 163-172. </li> [SCOPUS]
-  <li>  M Varaprasad Rao et. al., “Decision Support System using TensorFlow”; National Conference on Recent Advances in Technology and Engineering (RATE-2019) April 27’ 2019 at T.John Institute of Technology, Bangalore.</li> 
-  <li>  M Varaprasad Rao et. al., “Understanding and Comparing Services offered by Various Cloud Providers”; National Conference on Emerging Trends in Data Science and Intelligent Computing; 24-26 July 2018; Pages: 23-28; ISBN No: 9789385100314.</li>
-  <li>  M Varaprasad Rao et. al., “Statistical Metric Measurement Approach for Haze images”; Jan 23-25’ 2018 in ICCCPE-2018, Hyderabad; Springer – LNCS. </li> [SCOPUS]
-  <li>  M Varaprasad Rao et. al., “Multi-Tenancy authorization system in multi-cloud services”; Proceedings of the International Conference On Big Data Analytics and Computational Intelligence, ICBDACI 2017; 10.1109/ICBDACI.2017.80708739; 78-1-5090-6399-4/17/IEEE; pages: 408-411. </li> [SCOPUS]
-  <li>  M Varaprasad Rao et. al., “Recommendation System for Smart Mobile Phone selection through e-commerce website using TOPSIS algorithm”; National Conference on Computer Security, Image Processing, Graphics, Mobility and Analytics (NCCSIGMA2k16) - International Journal of Advanced Engineering Research and Science (IJAERS); https://dx.doi.org/10.22161/ijaers/si.13; ISSN: 2349-6495(P) | 2456-1908(O)</li>
-  <li>  M Varaprasad Rao et. al., “Age Classification based on Shape Features”; IJIRCCE Vol:4, SI:1; April 2016 (ICCI-2016) ISSN(Online): 2320-9801; ISSN (Print):  2320-9798.</li>
-  <li>  M Varaprasad Rao et. al., “Increase Security in Cloud Computing Using HMAC and Kerberos Algorithms” 	International Conference on Innovations and Advancements in Computing – ICIAC 2016 to be held on 18 -19 March 2016, at GITAM University, Hyderabad. eISSN: 2319-1163 | pISSN: 2321-7308.</li>
-  <li>  M Varaprasad Rao et. al., “The Impact of Cloud Computing on Entrepreneurship and Start-ups through Amazon Web Services”, International Conference on Entrepreneurship in Cloud Computing to be held on 9-10 March 2016, at SREC Warangal; ISBN 978-93-85477-76-8; pages: 104-107.</li>
-  <li>  M Varaprasad Rao et. al., “Algorithm for Clustering with Intrusion Detection using Modified & Hashed K-Means Algorithms”; Advances in Intelligent and Soft Computing, Springer, 2012, Volume 167; ISSN 1867-5662; DOI: 10.1007/978-3-642-30111-7_70; pages, 737-744. </li> [SCOPUS]
- <li>   M Varaprasad Rao; “A Survey on N-Gram patterns for detecting malicious code using classification”; National Conference on Data Mining (NCDM 12); 28 April 2012 at Vasavi College of Engineering in collaboration with IEEE Hyderabad section, Hyderabad; Conference Proceedings pages 109 – 112.</li>
-  <li>  M Varaprasad Rao et. al., “DSS for Gas Agency System using SAP-BI”; National Conference on Soft Computing & Knowledge Discovery – SCKD-12; 19-21 January 2012 at Sri Venkateswara University, Tirupati; ISBN 978-93-81177-13-6; pages 487-493.</li>
-        </ol>
-
-<h3> Book Chapters </h3>
-
-<ol>
-<li> Raj Kumar Patra, Srinivas Konda, M. Varaprasad Rao, Kavitarani Balmuri, G. Madhukar; Predictive Model and Theory of Interaction; Cognitive Behavior and Human Computer Interaction Based on Machine Learning Algorithms; Wiley Online Library; 2021.</li>
-<li> M. Varaprasad Rao, D. Anji Reddy, Anusha Ampavathi, and Shaik Munawar, Data Mining for Cyber-Physical Systems, Data Mining and Machine Learning Applications, (235–280) © 2021 Scrivener Publishing LLC.</li>
-<li> Raj Kumar Patra, M Varaprasd Rao, B Kavitha Rani, Srinivas Konda, Manoj Kumar Chande; High-Performance Computing and Fault Tolerance Technique Implementation in Cloud Computing; Green Computing and Its Applications, Nova Publications, 2021; ISBN: 978-1-68507-357-2; Pages 255-310.</li>
-<li> M. Varaprasad Rao; Data duplication using Amazon Web Services cloud storage;  Data Deduplication Approaches; ISBN: 978-0-12-823395-5; Elsevier, 2021; DOI: 10.1016/978-0-12-823395-5.00006-9; Pages 319-334.</li>
-<li> M Varaprasad Rao; “Business Use- cases”; Cloud Analytics with Google Cloud Platform; Packt Publications; ISBN: 9781788839686; pages 207-226.</li>
-<li> M Varaprasad Rao; “Machine Learning, Deep Learning and AI on GCP”; Cloud Analytics with Google Cloud Platform; ISBN: 9781788839686; Packt Publications; pages 164-188.</li>
-<li> M Varaprasad Rao et.al., “Search Time Minimization to Select an Item across E-Commerce Platforms: QuickCompare”, Improving E-Commerce Web Applications Through Business Intelligence Techniques, IGI Publications; ISSN: 1935-2700; Jan 2018; DOI: 10.4018/978-1-5225-3646-8.ch006; pages: 130-147. </li>
-<li> M Varaprasad Rao et. al., “DSS for Web Mining Using Recommendation System”, Web Data Mining and the Development of Knowledge-Based Decision Support Systems; IGI Publications; Jan 2017; ISSN: 2327-1981; eISSN: 2327-199X; pages: 22-34.</li>
-<li> M Varaprasad Rao et. al., “Architecture for Improving Security in Web Environment”; Design Solutions for Improving Website Quality and Effectiveness; IGI Publications; ISBN 9781466697645 (hardcover) | ISBN 9781466697652 (ebook); Jan 2016; pages: 316-333.</li>
-<li> M Varaprasad Rao et. al., “Web Analytics for Web Site Quality Improvement”; Design Solutions for Improving Website Quality and Effectiveness; IGI Publications; ISBN 9781466697645 (hardcover); Jan 2016; pages: 276-294.</li>
-</ol>
-<h3> Patents </h3>
-<ol>
-<li> Patent published on “Context-Aware Multi-Agent AI System For Real-Time Collaborative Problem Solving Using Natural Language Interfaces”; 12/06/2025.</li>
-<li> Patent published on “Multi-Source Remote Sensing Visual Question-Answering Method In Indian Regional Languages”; 202541004198 A; 24/01/2025.</li>
-<li> Patent granted on “Lymph node metastases detection from CT images using deep learning”; Australia; 2020101581; 31/07/2020.</li>
-<li> Patent granted on Device and Method for Intellectual Processing of Information in Neural Network; Indian Patent Office, Chennai; 201741042152; 31/05/2019.</li>
-<li> Federated learning based intrusion detection system; Indian Patent Office, Chennai; 201941032612A; 20/09/2019.</li>
-<li> Method and system for data security of capsule endoscope in the cloud computing environment; Indian Patent Office, Chennai; 201841043539A; 30/11/2018.</li>
-<li> Method for Enhancing Security and Maintaining Internet of Things Networks; Indian Patent Office, Chennai; 201741041111; 1/12/2017.</li>
-<li> Virtual Wireless Network Security Testing Platform Based On Wireless Devices; Indian Patent Office, Chennai; 201741041114; 1/12/2017.</li>
-</ol>
     </div>
+
+    <div class="pub-block" data-block="conf">
+      <h3>Conferences <span class="pub-count">(19)</span></h3>
+      <ol class="pub-list" data-cat="conf">
+        <li>Rohit Bojja, Anusha Addepati, Varaprasad Rao Mangu. LLaVA-Med V1.6: Swift Training of a Biomedical-Focused Language-and-Vision Model. <i>Advances in Computational Intelligence and Informatics — Proceedings of ICACII 2025</i>, LNNS-2098, 152–160. DOI: 10.1007/978-3-032-32483-2_17 <span class="badge">Scopus</span></li>
+        <li>P. Kalpana, M. Almusawi, Y. Chanti, V. Sunil Kumar, M. Varaprasad Rao. A Deep Reinforcement Learning-Based Task Offloading Framework for Edge-Cloud Computing. <i>2024 International Conference on Integrated Circuits and Communication Systems (ICICACS)</i>, Raichur, India, 2024, 1–5. DOI: 10.1109/ICICACS60521.2024.10498232 <span class="badge">Scopus</span></li>
+        <li>Y. Sneha, Y. M. Roopa, P. Sawant, M. V. Rao, D. L. Padmaja, R. V. S. Lalitha. Advancements in Brain Tumor Detection using Machine Learning Applications from MRI Image Analysis. <i>2023 7th International Conference on I-SMAC</i>, Kirtipur, Nepal, 2023, 809–814. DOI: 10.1109/I-SMAC58438.2023.10290231 <span class="badge">Scopus</span></li>
+        <li>Srujan Raju K., Jagtap V., Kulkarni P., Varaprasad Rao M. Gameplay Cognitive Decision Support Using Statistical and Non-statistical Parametric Fusion. <i>Computer Communication, Networking and IoT</i>, LNNS vol 459, Springer 2023. DOI: 10.1007/978-981-19-1976-3_24 <span class="badge">Scopus</span></li>
+        <li>NL Kishore Kumar, Varaprasad Rao M. A Yolo-Based Deep Learning Approach for Vehicle Class Classification. <i>MIWAI 2023</i>, LNAI 14078, Springer, 554–568. <span class="badge">Scopus</span></li>
+        <li>Srujan Raju K., Jagtap V., Kulkarni P., Varaprasad Rao M. Gameplay Cognitive Decision Support Using Statistical and Non-statistical Parametric Fusion. <i>LNNS</i>, Springer, 2023, vol 459, 187–193. <span class="badge">Scopus</span></li>
+        <li>M. Varaprasad Rao, B. Kavitha Rani, K. Srinivas, G. Madhukar. Sequential Pattern Mining for the U.S. Presidential Elections Using Google Cloud Platform (GCP). <i>Intelligent System Design, Advances in Intelligent Systems and Computing</i>, Springer 2021, vol 1171, 399–405. DOI: 10.1007/978-981-15-5400-1_41 <span class="badge">Scopus</span></li>
+        <li>M. Varaprasad Rao et al. Configure and Management of Internet of Things. <i>Advances in Intelligent and Soft Computing</i>, Springer 2020, vol 1079, 163–172. DOI: 10.1007/9789811510977_14 <span class="badge">Scopus</span></li>
+        <li>M. Varaprasad Rao et al. Decision Support System using TensorFlow. <i>National Conference on Recent Advances in Technology and Engineering (RATE-2019)</i>, T. John Institute of Technology, Bangalore, April 2019.</li>
+        <li>M. Varaprasad Rao et al. Understanding and Comparing Services offered by Various Cloud Providers. <i>National Conference on Emerging Trends in Data Science and Intelligent Computing</i>, 24–26 July 2018, 23–28. ISBN: 9789385100314</li>
+        <li>M. Varaprasad Rao et al. Statistical Metric Measurement Approach for Haze images. <i>ICCCPE-2018</i>, Hyderabad, Jan 2018, Springer LNCS. <span class="badge">Scopus</span></li>
+        <li>M. Varaprasad Rao et al. Multi-Tenancy authorization system in multi-cloud services. <i>Proceedings of the International Conference On Big Data Analytics and Computational Intelligence (ICBDACI 2017)</i>, 408–411. DOI: 10.1109/ICBDACI.2017.80708739 <span class="badge">Scopus</span></li>
+        <li>M. Varaprasad Rao et al. Recommendation System for Smart Mobile Phone selection through e-commerce website using TOPSIS algorithm. <i>NCCSIGMA2k16 — IJAERS</i>. DOI: 10.22161/ijaers/si.13</li>
+        <li>M. Varaprasad Rao et al. Age Classification based on Shape Features. <i>IJIRCCE</i>, 4(SI-1), (ICCI-2016), April 2016.</li>
+        <li>M. Varaprasad Rao et al. Increase Security in Cloud Computing Using HMAC and Kerberos Algorithms. <i>ICIAC 2016</i>, GITAM University, Hyderabad, 18–19 March 2016.</li>
+        <li>M. Varaprasad Rao et al. The Impact of Cloud Computing on Entrepreneurship and Start-ups through Amazon Web Services. <i>International Conference on Entrepreneurship in Cloud Computing</i>, SREC Warangal, 9–10 March 2016, 104–107. ISBN: 978-93-85477-76-8</li>
+        <li>M. Varaprasad Rao et al. Algorithm for Clustering with Intrusion Detection using Modified &amp; Hashed K-Means Algorithms. <i>Advances in Intelligent and Soft Computing</i>, Springer 2012, vol 167, 737–744. DOI: 10.1007/978-3-642-30111-7_70 <span class="badge">Scopus</span></li>
+        <li>M. Varaprasad Rao. A Survey on N-Gram patterns for detecting malicious code using classification. <i>National Conference on Data Mining (NCDM 12)</i>, Vasavi College of Engineering, Hyderabad, 28 April 2012, 109–112.</li>
+        <li>M. Varaprasad Rao et al. DSS for Gas Agency System using SAP-BI. <i>National Conference on Soft Computing &amp; Knowledge Discovery (SCKD-12)</i>, Sri Venkateswara University, Tirupati, 19–21 January 2012, 487–493. ISBN: 978-93-81177-13-6</li>
+      </ol>
+    </div>
+
+    <div class="pub-block" data-block="chapter">
+      <h3>Book Chapters <span class="pub-count">(10)</span></h3>
+      <ol class="pub-list" data-cat="chapter">
+        <li>Raj Kumar Patra, Srinivas Konda, M. Varaprasad Rao, Kavitarani Balmuri, G. Madhukar. Predictive Model and Theory of Interaction. <i>Cognitive Behavior and Human Computer Interaction Based on Machine Learning Algorithms</i>, Wiley Online Library, 2021.</li>
+        <li>M. Varaprasad Rao, D. Anji Reddy, Anusha Ampavathi, Shaik Munawar. Data Mining for Cyber-Physical Systems. <i>Data Mining and Machine Learning Applications</i>, 235–280, Scrivener Publishing LLC, 2021.</li>
+        <li>Raj Kumar Patra, M. Varaprasad Rao, B. Kavitha Rani, Srinivas Konda, Manoj Kumar Chande. High-Performance Computing and Fault Tolerance Technique Implementation in Cloud Computing. <i>Green Computing and Its Applications</i>, Nova Publications, 2021, 255–310. ISBN: 978-1-68507-357-2</li>
+        <li>M. Varaprasad Rao. Data duplication using Amazon Web Services cloud storage. <i>Data Deduplication Approaches</i>, Elsevier, 2021, 319–334. DOI: 10.1016/978-0-12-823395-5.00006-9</li>
+        <li>M. Varaprasad Rao. Business Use-cases. <i>Cloud Analytics with Google Cloud Platform</i>, Packt Publications, 207–226. ISBN: 9781788839686</li>
+        <li>M. Varaprasad Rao. Machine Learning, Deep Learning and AI on GCP. <i>Cloud Analytics with Google Cloud Platform</i>, Packt Publications, 164–188. ISBN: 9781788839686</li>
+        <li>M. Varaprasad Rao et al. Search Time Minimization to Select an Item across E-Commerce Platforms: QuickCompare. <i>Improving E-Commerce Web Applications Through Business Intelligence Techniques</i>, IGI Publications, Jan 2018, 130–147. DOI: 10.4018/978-1-5225-3646-8.ch006</li>
+        <li>M. Varaprasad Rao et al. DSS for Web Mining Using Recommendation System. <i>Web Data Mining and the Development of Knowledge-Based Decision Support Systems</i>, IGI Publications, Jan 2017, 22–34.</li>
+        <li>M. Varaprasad Rao et al. Architecture for Improving Security in Web Environment. <i>Design Solutions for Improving Website Quality and Effectiveness</i>, IGI Publications, Jan 2016, 316–333. ISBN: 9781466697645</li>
+        <li>M. Varaprasad Rao et al. Web Analytics for Web Site Quality Improvement. <i>Design Solutions for Improving Website Quality and Effectiveness</i>, IGI Publications, Jan 2016, 276–294. ISBN: 9781466697645</li>
+      </ol>
+    </div>
+
+    <div class="pub-block" data-block="patent">
+      <h3>Patents <span class="pub-count">(8)</span></h3>
+      <ol class="pub-list" data-cat="patent">
+        <li>Context-Aware Multi-Agent AI System For Real-Time Collaborative Problem Solving Using Natural Language Interfaces. Published, 12/06/2025.</li>
+        <li>Multi-Source Remote Sensing Visual Question-Answering Method In Indian Regional Languages. 202541004198 A. Published, 24/01/2025.</li>
+        <li>Lymph node metastases detection from CT images using deep learning. Granted, Australia, 2020101581, 31/07/2020.</li>
+        <li>Device and Method for Intellectual Processing of Information in Neural Network. Granted, Indian Patent Office, Chennai, 201741042152, 31/05/2019.</li>
+        <li>Federated learning based intrusion detection system. Indian Patent Office, Chennai, 201941032612A, 20/09/2019.</li>
+        <li>Method and system for data security of capsule endoscope in the cloud computing environment. Indian Patent Office, Chennai, 201841043539A, 30/11/2018.</li>
+        <li>Method for Enhancing Security and Maintaining Internet of Things Networks. Indian Patent Office, Chennai, 201741041111, 1/12/2017.</li>
+        <li>Virtual Wireless Network Security Testing Platform Based On Wireless Devices. Indian Patent Office, Chennai, 201741041114, 1/12/2017.</li>
+      </ol>
+    </div>
+
+    <p class="pub-empty" id="pubEmpty">No entries match your search.</p>
+  </div>
 </section>
-
-<!-- <section id="research">
-    <h2>Research Interests</h2>
-    <div class="card">
-        <ul>
-            <li>Algorithms</li>
-            <li>Security</li>
-            <li>Data Mining</li>
-            <li>Cloud Computing</li>
-            <li>Big Data Analytics</li>
-        </ul>
-    </div>
-</section> -->
 
 <section id="membership">
-    <h2>Professional Memberships</h2>
-    <div class="card">
-        <ul>
-            <li>Life Member – CSI - LM # 5022161238</li>
-            <li>Life Member – ISTE - LM #109638</li>
-            <li>Life Member – IAEng - LM #162271</li>
-            <li> Annual Membership - ACM - M #1218417</li>
-        </ul>
+  <div class="wrap">
+    <div class="eyebrow"><span class="num">§04</span> Memberships</div>
+    <h2 class="headline">Professional Memberships</h2>
+    <div class="grid3">
+      <div class="info-card reveal"><div class="k">Life Member</div><div class="v">CSI</div><div class="sub">LM #5022161238</div></div>
+      <div class="info-card reveal"><div class="k">Life Member</div><div class="v">ISTE</div><div class="sub">LM #109638</div></div>
+      <div class="info-card reveal"><div class="k">Life Member</div><div class="v">IAEng</div><div class="sub">LM #162271</div></div>
+      <div class="info-card reveal"><div class="k">Annual Membership</div><div class="v">ACM</div><div class="sub">M #1218417</div></div>
     </div>
+  </div>
 </section>
 
-
 <section id="lectures">
-    <h2>Courses Taught</h2>
-    <div class="card">
-        <ul>
-            <li>Data Analytics</li>
-            <li>Information Retrieval Systems</li>
-            <li>Introuduction to Data Analysis</li>
-            <li>Design Patterns</li>
-        </ul>
+  <div class="wrap">
+    <div class="eyebrow"><span class="num">§05</span> Teaching</div>
+    <h2 class="headline">Courses Taught</h2>
+    <div class="grid3">
+      <div class="info-card reveal"><div class="v">Data Analytics</div></div>
+      <div class="info-card reveal"><div class="v">Information Retrieval Systems</div></div>
+      <div class="info-card reveal"><div class="v">Introduction to Data Analysis</div></div>
+      <div class="info-card reveal"><div class="v">Design Patterns</div></div>
     </div>
+  </div>
 </section>
 
 <section id="awards">
-    <h2>Awards</h2>
-    <div class="card">
-        <ul>
-            <li>Received <b>Best Researcher Award</b> from CSI Hyderabad on 11-07-2026</li>
-            <li>Received <b>Innovative Teaching Excellence Award</b> from AIMERS on 05-09-2024</li>
-            <li>Received <b>Top 3 performance Award</b> from Virtual Labs, IIIT Hyderabad 2019</li>
-        </ul>
+  <div class="wrap">
+    <div class="eyebrow"><span class="num">§06</span> Recognition</div>
+    <h2 class="headline">Awards</h2>
+    <div class="awards">
+      <div class="award-row reveal">
+        <span class="award-year">2026</span>
+        <div><p class="award-title">Best Researcher Award</p><p class="award-body">Awarded by CSI Hyderabad, 11 July 2026</p></div>
+      </div>
+      <div class="award-row reveal">
+        <span class="award-year">2024</span>
+        <div><p class="award-title">Innovative Teaching Excellence Award</p><p class="award-body">Awarded by AIMERS, 05 September 2024</p></div>
+      </div>
+      <div class="award-row reveal">
+        <span class="award-year">2019</span>
+        <div><p class="award-title">Top 3 Performance Award</p><p class="award-body">Virtual Labs, IIIT Hyderabad</p></div>
+      </div>
     </div>
+  </div>
 </section>
 
-    
 <section id="contact">
-    <h2>Contact</h2>
-    <div class="card">
-        <p>Email: varam78@gmail.com</p>
-        <p>
-              <a href = "https://scholar.google.com/citations?user=ux0wQMQAAAAJ&hl=en"> Google Scholar </a>       
-        </p>
-        <p>
-              <a href = "https://www.scopus.com/authid/detail.uri?authorId=57487209700"> Scopus </a>
-        </p>
-        <p>
-              <a href = "https://orcid.org/my-orcid?orcid=0000-0003-1766-4826"> ORCiD </a>
-        </p>
-        <p> 
-                <a href = "https://www.webofscience.com/wos/author/record/AAP-7655-2021"> WoS
-        </p>
-    
+  <div class="wrap">
+    <div class="eyebrow"><span class="num">§07</span> Contact</div>
+    <h2 class="headline">Get in touch</h2>
+    <div class="contact-wrap">
+      <div class="contact-card">
+        <div>
+          <div class="label">Email</div>
+          <a class="email" href="mailto:varam78@gmail.com">varam78@gmail.com</a>
+        </div>
+        <a class="btn btn-gold" href="mailto:varam78@gmail.com">Write an email</a>
+      </div>
+      <a class="link-card" href="https://scholar.google.com/citations?user=ux0wQMQAAAAJ&hl=en" target="_blank" rel="noopener">
+        <span class="name">Google Scholar</span><span class="arrow">↗</span>
+      </a>
+      <a class="link-card" href="https://www.scopus.com/authid/detail.uri?authorId=57487209700" target="_blank" rel="noopener">
+        <span class="name">Scopus</span><span class="arrow">↗</span>
+      </a>
+      <a class="link-card" href="https://orcid.org/my-orcid?orcid=0000-0003-1766-4826" target="_blank" rel="noopener">
+        <span class="name">ORCiD</span><span class="arrow">↗</span>
+      </a>
+      <a class="link-card" href="https://www.webofscience.com/wos/author/record/AAP-7655-2021" target="_blank" rel="noopener">
+        <span class="name">Web of Science</span><span class="arrow">↗</span>
+      </a>
     </div>
+  </div>
 </section>
 
 <footer>
-    <p>© 2026 Dr Rao</p>
-    
-    
+  <div class="wrap">
+    <div class="colophon">© 2026 <b>M. Varaprasad Rao, Ph.D</b> · Hyderabad, India</div>
+    <a class="to-top" href="#top">Back to top ↑</a>
+  </div>
 </footer>
+
+<script>
+(function(){
+  // mobile nav toggle
+  var toggle = document.getElementById('navToggle');
+  var nav = document.getElementById('primaryNav');
+  toggle.addEventListener('click', function(){
+    nav.classList.toggle('open');
+  });
+  nav.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){ nav.classList.remove('open'); });
+  });
+
+  // scroll-spy active nav link
+  var links = Array.prototype.slice.call(nav.querySelectorAll('a'));
+  var sections = links.map(function(a){ return document.querySelector(a.getAttribute('href')); }).filter(Boolean);
+  var spy = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      var link = nav.querySelector('a[href="#' + entry.target.id + '"]');
+      if(!link) return;
+      if(entry.isIntersecting){
+        links.forEach(function(l){ l.classList.remove('active'); });
+        link.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-45% 0px -50% 0px' });
+  sections.forEach(function(s){ spy.observe(s); });
+
+  // reveal on scroll
+  var reveals = document.querySelectorAll('.reveal');
+  var ro = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){ entry.target.classList.add('in'); ro.unobserve(entry.target); }
+    });
+  }, { threshold: .12 });
+  reveals.forEach(function(el){ ro.observe(el); });
+
+  // publications: tab filter
+  var tabs = document.querySelectorAll('.pub-tab');
+  var blocks = document.querySelectorAll('.pub-block');
+  function applyFilters(){
+    var activeTab = document.querySelector('.pub-tab.active').dataset.cat;
+    var q = document.getElementById('pubSearch').value.trim().toLowerCase();
+    var anyVisible = false;
+
+    blocks.forEach(function(block){
+      var cat = block.dataset.block;
+      var showBlock = (activeTab === 'all' || activeTab === cat);
+      var items = block.querySelectorAll('li');
+      var blockHasVisible = false;
+
+      items.forEach(function(li){
+        var matchesText = !q || li.textContent.toLowerCase().indexOf(q) !== -1;
+        var visible = showBlock && matchesText;
+        li.classList.toggle('hidden', !visible);
+        if(visible){ blockHasVisible = true; anyVisible = true; }
+      });
+
+      block.style.display = blockHasVisible ? '' : 'none';
+    });
+
+    document.getElementById('pubEmpty').classList.toggle('show', !anyVisible);
+  }
+
+  tabs.forEach(function(tab){
+    tab.addEventListener('click', function(){
+      tabs.forEach(function(t){ t.classList.remove('active'); });
+      tab.classList.add('active');
+      applyFilters();
+    });
+  });
+  document.getElementById('pubSearch').addEventListener('input', applyFilters);
+})();
+</script>
 
 </body>
 </html>
-
