@@ -264,18 +264,21 @@
   ol.pub-list{ list-style:none; margin:0; padding:0; counter-reset:pub; }
   ol.pub-list li{
     counter-increment:pub;
-    display:grid; grid-template-columns:34px 1fr; gap:14px;
-    padding:15px 0; border-top:1px solid var(--line);
-    font-size:14.5px; color:var(--slate);
+    position:relative;
+    padding:15px 0 15px 44px;
+    border-top:1px solid var(--line);
+    font-size:14.5px; line-height:1.65; color:var(--slate);
   }
   ol.pub-list li::before{
     content: counter(pub, decimal-leading-zero);
-    font-family:var(--mono); font-size:12px; color:var(--muted); padding-top:2px;
+    position:absolute; left:0; top:16px;
+    font-family:var(--mono); font-size:12px; color:var(--muted);
   }
   ol.pub-list li .badge{
     font-family:var(--mono); font-size:10px; letter-spacing:.05em;
     border:1px solid var(--gold-soft); color:var(--gold); background:rgba(169,130,47,.08);
-    padding:2px 7px; border-radius:999px; white-space:nowrap; margin-left:8px; display:inline-block;
+    padding:2px 7px; border-radius:999px; white-space:nowrap; margin-left:6px;
+    display:inline-block; vertical-align:middle;
   }
   ol.pub-list li.hidden{ display:none; }
   .pub-empty{ display:none; padding:30px 0; color:var(--muted); font-family:var(--mono); font-size:13px; }
@@ -290,6 +293,16 @@
   .info-card .k{ font-family:var(--mono); font-size:11px; color:var(--gold); letter-spacing:.06em; margin-bottom:8px; text-transform:uppercase; }
   .info-card .v{ font-family:var(--serif); font-size:17px; color:var(--ink); font-weight:600; }
   .info-card .sub{ font-family:var(--mono); font-size:12px; color:var(--muted); margin-top:6px; }
+  .info-card .resources{ display:flex; gap:8px; flex-wrap:wrap; margin-top:14px; padding-top:14px; border-top:1px solid var(--line); }
+  .info-card .resources:empty{ display:none; }
+  .res-link{
+    font-family:var(--mono); font-size:11.5px; letter-spacing:.02em;
+    display:inline-flex; align-items:center; gap:6px;
+    color:var(--gold); text-decoration:none; border:1px solid var(--line);
+    padding:6px 10px; border-radius:6px; transition:border-color .15s ease, background .15s ease;
+  }
+  .res-link:hover{ border-color:var(--gold); background:rgba(169,130,47,.08); }
+  .res-link svg{ flex:none; }
 
   /* ============ AWARDS ============ */
   .awards{ display:grid; gap:0; }
@@ -597,10 +610,27 @@
     <div class="eyebrow"><span class="num">§05</span> Teaching</div>
     <h2 class="headline">Courses Taught</h2>
     <div class="grid3">
-      <div class="info-card reveal"><div class="v">Data Analytics</div></div>
-      <div class="info-card reveal"><div class="v">Information Retrieval Systems</div></div>
-      <div class="info-card reveal"><div class="v">Introduction to Data Analysis</div></div>
-      <div class="info-card reveal"><div class="v">Design Patterns</div></div>
+      <div class="info-card reveal">
+        <div class="v">Data Analytics</div>
+        <div class="resources">
+          <a class="res-link" href="courses/data-analytics-syllabus.pdf" target="_blank" rel="noopener">📄 Syllabus (PDF)</a>
+          <a class="res-link" href="courses/data-analytics-slides.pdf" target="_blank" rel="noopener">📊 Slides (PDF)</a>
+        </div>
+      </div>
+      <div class="info-card reveal">
+        <div class="v">Information Retrieval Systems</div>
+        <div class="resources">
+          <a class="res-link" href="courses/ir-systems-syllabus.pdf" target="_blank" rel="noopener">📄 Syllabus (PDF)</a>
+        </div>
+      </div>
+      <div class="info-card reveal">
+        <div class="v">Introduction to Data Analysis</div>
+        <div class="resources"></div>
+      </div>
+      <div class="info-card reveal">
+        <div class="v">Design Patterns</div>
+        <div class="resources"></div>
+      </div>
     </div>
   </div>
 </section>
